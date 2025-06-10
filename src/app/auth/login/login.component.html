@@ -1,0 +1,27 @@
+<div class="w-100 h-100 d-flex align-items-center justify-content-center">
+
+  <form (ngSubmit)="login()">
+  <fieldset >
+    <legend>Login</legend>
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" id="username" class="form-control" placeholder="me@mail.com">
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="text" id="password" class="form-control" placeholder="******">
+    </div>
+    <div class="mb-3">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" >
+        <label class="form-check-label" for="disabledFieldsetCheck">
+          Can’t check this
+        </label>
+      </div>
+    </div>
+    <span class="text-secondary">Don't have an account? <a href="" routerLink="../signup">Signup</a></span>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </fieldset>
+</form>
+
+</div>
