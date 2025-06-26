@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "name": "saikiran",
+      "age": 28,
+      "gender": "M",
+      "id": "4e1b"
+    },
+    {
+      "id": "d0ce",
+      "username": "sai.mamidi@outlook.com",
+      "password": "12341234",
+      "confirm": "12341234"
+    },
+    {
+      "id": "9e16",
+      "username": "mamidi@outlook.com",
+      "password": "12341234",
+      "confirm": "12341234"
+    },
+    {
+      "id": "c7d8",
+      "username": "mskbusiness44@gmail.com",
+      "password": "12341234",
+      "confirm": "12341234"
+    }
+  ]
+}

@@ -1,23 +1,50 @@
 <div class="w-100 h-100 d-flex align-items-center justify-content-center">
 
-  <form (ngSubmit)="signup()">
+  <form [formGroup]="signup" (ngSubmit)="signupSumit()">
   <fieldset >
     <legend>Signup</legend>
     <div class="mb-3">
       <label for="username" class="form-label">Username</label>
-      <input type="text" id="username" class="form-control" placeholder="me@mail.com">
+      <input type="text" id="username" class="form-control" placeholder="me@mail.com" formControlName="username">
+      <div class="" *ngIf="signup.get('username')?.errors">
+        <small class="text-danger">This is required</small>
+      </div>
     </div>
     <div class="mb-3">
       <label for="password" class="form-label">Password</label>
-      <input type="text" id="password" class="form-control" placeholder="******">
+      <input type="text" id="password" class="form-control" placeholder="******" formControlName="password">
+      <div class="" *ngIf="signup.get('password')?.errors && signup.get('password')?.dirty">
+        <small class="text-danger" *ngIf="signup.get('password')?.errors?.['required']">This is required</small>
+        <small class="text-danger" *ngIf="signup.get('password')?.errors?.['minlength']">minimum 8 characters</small>
+      </div>
     </div>
     <div class="mb-3">
       <label for="password" class="form-label">Confirm Password</label>
-      <input type="text" id="password" class="form-control" placeholder="******">
+      <input type="text" id="password" class="form-control" placeholder="******" formControlName="confirm">
+      <div class="" *ngIf="signup.get('confirm')?.errors">
+        <small class="text-danger" *ngIf="signup.get('confirm')?.errors?.['required']">This is required</small>
+        <small class="text-danger" *ngIf="signup.get('confirm')?.errors?.['minlength']">minimum 8 characters</small>
+      </div>
     </div>
     
     <button type="submit" class="btn btn-primary">Submit</button>
   </fieldset>
 </form>
+
+<form [formGroup]="form" (ngSubmit)="print()">
+  <label for="">Name</label>
+  <input type="text" formControlName="name">
+
+  <div class="" formArrayName="group">
+    <ng-container *ngFor="let each of group.controls; let i = index" [formGroupName]="i">
+      <label for="">Name</label>
+  <input type="text" formControlName="name">
+<button (click)="remove(i)">remove</button>
+
+    </ng-container>
+  </div>
+  <button type="submit">Print</button>
+</form>
+<button (click)="add()">Add</button>
 
 </div>
