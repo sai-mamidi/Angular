@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
 // import {db} from '../../../../../learn/db.json'
 import {RequesterService} from '../../sharedmodule/requester.service'
+import GlobalVariables from 'src/app/contstant';
 
 @Component({
   selector: 'app-signup',
@@ -12,13 +13,12 @@ export class SignupComponent {
 
   constructor(
     private fb: FormBuilder,
-    private RequesterService: RequesterService
+    private RequesterService: RequesterService,
+    private constant: GlobalVariables
   ){
 
   }
 
-  // dbUrl = '../../../../../learn/db.json'
-  dbUrl = 'http://localhost:3000/users'
 
   signup = this.fb.group({
       username: ['', [Validators.required]],
@@ -28,7 +28,7 @@ export class SignupComponent {
 
   signupSumit(){
     if(this.signup.invalid) return
-    this.RequesterService.addNewUser(this.signup.value, this.dbUrl).subscribe(res => {
+    this.RequesterService.addNewUser(this.signup.value, this.constant.dbUrl).subscribe(res => {
       console.log(res)
     })
 

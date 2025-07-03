@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './sharedmodule/sharedmodule.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import GlobalVariables from './contstant';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
     AppRoutingModule,
     SharedModule,
   ],
-  providers: [],
+  providers: [GlobalVariables],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

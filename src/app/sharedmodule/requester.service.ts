@@ -16,4 +16,9 @@ export class RequesterService {
     })
     return this.http.post(url, data,{headers})
   }
+
+  logIn(data:object, url:string):Observable<any> {
+    return this.http.get(url)
+  }
+
 }
