@@ -5,9 +5,12 @@
     <legend>Login</legend>
     <div class="mb-3">
       <label for="username" class="form-label">Username</label>
-      <input type="text" id="username" class="form-control" placeholder="me@mail.com" formControlName="username">
+      <input type="text" id="username" class="form-control" placeholder="me@mail.com" formControlName="username" >
       <div class="" *ngIf="isFormSubmitted && form.get('username')?.errors?.['required']">
         <small>Required</small>
+      </div>
+      <div>
+        <small>Uppercase: {{'Hello' | transformer }}</small>
       </div>
     </div>
     <div class="mb-3">
