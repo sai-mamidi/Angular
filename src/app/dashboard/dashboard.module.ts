@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { ViewComponent } from './view/view.component';
 import { SharedModule } from '../sharedmodule/sharedmodule.module';
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { SharedModule } from '../sharedmodule/sharedmodule.module';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    SharedModule
+    SharedModule,
+    NgChartsModule
   ]
 })
 export class DashboardModule { }

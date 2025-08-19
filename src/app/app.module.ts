@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './sharedmodule/sharedmodule.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import GlobalVariables from './contstant';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ReqHandlerrInterceptor } from './req-handlerr.interceptor';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import GlobalVariables from './contstant';
     AppRoutingModule,
     SharedModule,
   ],
-  providers: [GlobalVariables],
+  providers: [GlobalVariables,
+     { provide: HTTP_INTERCEPTORS, useClass: ReqHandlerrInterceptor, multi: true }  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

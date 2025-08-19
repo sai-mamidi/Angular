@@ -1,2 +1,38 @@
 <p>view works!</p>
 <app-aside-menu></app-aside-menu>
+<!-- mh-100 -->
+<div class="row" *ngIf="showCharts">
+    <div class="col-12 col-lg-6 bg-secondary mh-1000  d-flex justify-content-center align-items-center py-3">
+        <canvas baseChart type="pie" [data]="pieChartData" #chart [options]="pieChartOptions"></canvas>
+    </div>
+    <div class="col-12 col-lg-6 mh-1000">
+        <canvas
+            baseChart
+            [data]="lineChartData"
+            [options]="lineChartOptions"
+            [type]="lineChartType"
+            (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)"
+
+        ></canvas>
+    </div>
+
+    <div class="col-12 col-lg-6">
+        <canvas
+            baseChart
+            [data]="barChart"
+            [options]="barOptions"
+            type="bar"
+            
+        ></canvas>
+    </div>
+
+    <div class="col-12 col-lg-6">
+        <canvas
+            baseChart
+            [data]="lineData"
+            [options]="barOptions"
+            type="line"
+        ></canvas>
+    </div>
+</div>
