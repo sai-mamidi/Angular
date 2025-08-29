@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { filter, map, tap } from 'rxjs';
 import GlobalVariables from 'src/app/contstant';
 import { RequesterService } from 'src/app/sharedmodule/requester.service';
@@ -11,7 +12,7 @@ import { RequesterService } from 'src/app/sharedmodule/requester.service';
 })
 export class LoginComponent {
 
-  constructor(private fb: FormBuilder, private service: RequesterService,private constant: GlobalVariables  ){
+  constructor(private fb: FormBuilder, private service: RequesterService,private constant: GlobalVariables , private router: Router ){
 
   }
 
@@ -27,6 +28,8 @@ export class LoginComponent {
 
   isFormSubmitted = false;
   login(){
+    this.router.navigate(['/home'])
+    return
     
     this.isFormSubmitted = true;
     if(this.form.invalid) return
